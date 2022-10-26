@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Health Moni</title>
+	<link rel="shortcut icon" href="../src/ico/logo.ico">
+	<link rel="stylesheet" href="../css/login_style.css">
+	<script src="../js/main.js"></script>
+</head>
+<body>
+	<div class="login-card-container">
+		<div class="login-card">
+			<div class="login-card-logo">
+				<img src="../src/png/logo.png" alt="logo">
+			</div>
+			<div class="login-card-header">
+				<h1>Health Moni</h1>
+				<div>Please login to use platform</div>
+			</div>
+		
+			<form class="login-card-form">
+				<div class="login-form-item">
+					<span>
+						<object data="../src/svg/username.svg" width="24" height="24"></object>
+						Username
+					</span>
+					<input type="text" id="username" required>
+				</div>
+				<div class="login-form-item">
+					<span>
+						<object data="../src/svg/password.svg" width="24" height="24"></object>
+						Password
+					</span>
+					<input type="password" id="password" required>
+				</div>
+				<div class="login-form-other">
+					<div class="checkbox">
+						<input type="checkbox" id="rememberMeCheckbox">
+						<label for="rememberMeCheckbox">Remember Me</label>
+					</div>
+					<a href="#">I forgot my password!</a>
+				</div>
+				<button type="button" onclick="getInfo()">
+					 Sign In
+				</button>
+			</form>
+			<div class="login-card-footer">
+				<a href="#">Sign up</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
