@@ -20,20 +20,20 @@
 				<div>Please login to use platform</div>
 			</div>
 		
-			<form class="login-card-form">
+			<form class="login-card-form" action="../php/databaseConnection.php" method="post">
 				<div class="login-form-item">
 					<span>
 						<object data="../src/svg/username.svg" width="24" height="24"></object>
 						Username
 					</span>
-					<input type="text" id="username" required>
+					<input type="text" id="username" name="uname" required>
 				</div>
 				<div class="login-form-item">
 					<span>
 						<object data="../src/svg/password.svg" width="24" height="24"></object>
 						Password
 					</span>
-					<input type="password" id="password" required>
+					<input type="password" id="password" name="upass" required>
 				</div>
 				<div class="login-form-other">
 					<div class="checkbox">
@@ -42,7 +42,7 @@
 					</div>
 					<a href="#">I forgot my password!</a>
 				</div>
-				<button type="button" onclick="getInfo()">
+				<button type="sumbit">
 					 Sign In
 				</button>
 			</form>

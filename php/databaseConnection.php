@@ -1,14 +1,60 @@
 <?php
-    $servername = "192.168.0.197";
-    $username = "jayden";
-    $password = "123456";
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password);
+session_start();
+include "connect.php";
 
-    // Check connection
-    if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    if(isset($_POST['uname']) && isset($_POST['upass'])){
+        function validate($data){
+            $data = trim($data);
+            $data = stripcslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        
+        $uname = validate($_POST['uname']);
+        $pass = validate($_POST['upass']);
+        if(empty($uname)){
+            header("Location: http://localhost/HealthMoni/html/index.html");
+            exit();
+        }else if(empty($pass)){
+            header("Location: http://localhost/HealthMoni/html/index.html");
+            exit();
+        }else{
+            
+            $sql = "SELECT * FROM pass WHERE user_id='$uname' AND pin='$pass'";
+            $result = $conn->query($sql);
+
+
+            if ($result->num_rows == 1){
+                $row = $result->fetch_assoc();
+                if($row['user_id'] == $uname && $row['pin'] == $pass){
+                    $_SESSION['user_name'] = $row['user_id'];
+                    $_SESSION['name'] = $row['user_id'];
+                    $_SESSION['id'] = $row['user_id'];
+                    header("Location: http://localhost/HealthMoni/html/home.php");
+                    exit();
+                }else{
+                    header("Location: http://localhost/HealthMoni/html/index.html");
+                    exit();
+                }
+            }else{
+                header("Location: http://localhost/HealthMoni/html/index.html");
+                exit();
+            }
+        }
+    }else{
+        header("Location: http://localhost/HealthMoni/html/index.html");
+        exit();
     }
-    echo "Connected successfully";
+
+
+
+
+
+
+
+
+
+
+
 ?>

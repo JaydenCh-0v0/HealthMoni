@@ -36,7 +36,7 @@ function setMenuHypertext(){
     menu_msg.href  = "../html/messages.html";
     menu_booking.href = "../html/booking.html";
     menu_doctors.href = "../html/doctors.html";
-    menu_logout.href  = "../html/index.html";
+    menu_logout.href  = "../php/logout.php";
 }
 
 function getUserInfo() {
