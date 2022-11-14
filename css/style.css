@@ -59,7 +59,7 @@ body {
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto 14rem;
+    grid-template-columns: 14rem auto 12rem;
 }
 /**/
 
@@ -222,7 +222,7 @@ main .searchBar {
 /* Info */
 main .info {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 70%;
     gap: 1.6rem;
     margin-top: 1rem;
     align-items: center;
@@ -234,10 +234,21 @@ main .info .welcome {
     margin-right: 1rem;
 }
 
+main .info .dataChartTitle {
+    color: var(--color-danger);
+}
+
 main .info .dataChart {
+    width: 96%;
+    display: grid;
+    grid-template-columns: 1fr;
     background: transparent;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+main .info .dataChart canvas{
+    max-width: 100%;
 }
 
 /* Deck */
@@ -318,6 +329,44 @@ main .deck small {
     margin-top: 1.6rem;
     display: block;
 }
+
+/*msg area*/
+main .wrapper {
+    background: #2E87A3;
+    width: auto;
+    height: 82px;
+    margin: 1rem;
+    border-radius: var(--border-radius-2);
+}
+
+main .msgBox {
+    background: transparent;
+    width: auto;
+    height: 70%;
+    margin: 1rem;
+    border-radius: var(--border-radius-2);
+}
+
+main .msgBox .msgTop {
+    height: 10%;
+    background: transparent;
+}
+
+main .msgBox .msgOutput {
+    height: 80%;
+    background: var(--color-light);
+    border-radius: var(--border-radius-2);
+}
+
+main .msgBox .msgInput {
+    display: inline-block;
+    width: 100%;
+    margin-top: 0.5rem;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 1.6rem;
+}
+
 /* n main */
 
 
@@ -341,7 +390,7 @@ main .deck small {
 .profile-photo {
     width: 2.8rem;
     height: 2.8rem;
-    border-radius: 30%;
+    border-radius: 20%;
     overflow: hidden;
 }
 
@@ -369,6 +418,7 @@ main .deck small {
     background: var(--color-light);
     display: flex;
     justify-content: space-between;
+    margin: auto;
     align-items: center;
     height: 1.6rem;
     width: 4.2rem;
@@ -397,13 +447,25 @@ main .deck small {
     text-align: right;
 }
 
+
+
+
+
+
+
+
+
+
+
 /*=== MEDIA QUERIES (pad) ===*/
 @media screen and (max-width: 1200px) {
     .container{
         width: 94%;
-        grid-template-columns: 7rem auto 14rem;
+        grid-template-columns: 5.5rem auto;
     }
-    
+    aside .logo img {
+        margin-left: 1.3rem;
+    }
     aside .logo h2 {
         display: none;
     }
@@ -430,7 +492,21 @@ main .deck small {
         padding: 2px 4px;
         border-radius: 50%;
     }
+
+    .right {
+        display: none;
+    }
 }
+
+
+
+
+
+
+
+
+
+
 
 /*=== MEDIA QUERIES (phone) ===*/
 @media screen and (max-width: 768px) {
@@ -460,6 +536,9 @@ main .deck small {
 
     aside .logo {
         margin-left: 1rem;
+    }
+    aside .logo img {
+        margin-left: 0rem;
     }
     aside .logo h2 {
         display: inline;
@@ -493,11 +572,17 @@ main .deck small {
         margin-left: 1rem;
         margin-right: 1rem;
     }
+    main .info .dataChart {
+        background: transparent;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
     main .deck {
         grid-template-columns: 1fr;
     }
 
     .right {
+        display: block;
         width: 94%;
         margin: 0 auto 4rem;
     }
@@ -512,15 +597,10 @@ main .deck small {
         width: 100%;
         margin: 0;
         z-index: 2;
-        box-shadow: 0 1rem 1rem var(--color-light);
-    }
-    .right .top .theme-toggler {
-        width: 4.4rem;
-        position: absolute;
-        left: 66%;
+        box-shadow: 0 1px 0 var(--color-light);
     }
     .right .profile .info {
-        display: none;
+        display: grid;
     }
     .right .top button{
         display: inline-block;
@@ -534,7 +614,16 @@ main .deck small {
     .right .top button span{
         font-size: 2rem;
     }
+    .right .right-btm {
+        background: #2E87A3;
+    }
+    .right .theme-toggler {
+        margin: 0rem;
+    }
     main .searchBar {
         display: none;
+    }
+    main .msgBox {
+        height: 34rem;
     }
 }

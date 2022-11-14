@@ -12,48 +12,28 @@ var objPeople = [
 		password: 	"user",
 		role: 		0,
 		realname:	"User 001",
-		age: 62,
-		rcd_date: 	["12/10","13/10","14/10","15/10","16/10","17/10","18/10"],
-		bp_systo: 	[102,104,109,105,106,104,110],
-		bp_diast: 	[65,67,70,69,70,65,70],
-		hr:			[80,74,80,80,82,79,82],
-		walks: 		[10237,18923,4837,8347,12357,12482]
+		age: 62
 	},
 	{
 		username: "doctor",
 		password: "doctor",
 		role: 1,
 		realname:	"Doctor 001",
-		age: 41,
-		rcd_date: 	[],
-		bp_systo: 	[],
-		bp_diast: 	[],
-		hr:			[],
-		walks: 		[]
+		age: 41
 	},
 	{ 
 		username: "Jayden",
 		password: "Jayden",
 		role: 2,
 		realname:	"Jayden",
-		age: 23,
-		rcd_date: 	["12/10","13/10","14/10","15/10","16/10","17/10","18/10"],
-		bp_systo: 	[102,104,109,105,106,104,110],
-		bp_diast: 	[65,67,70,69,70,65,70],
-		hr:			[80,74,80,80,82,79,82],
-		walks: 		[10237,18923,4837,8347,12357,12482]
+		age: 23
 	},
     { 
 		username: "admin",
 		password: "admin",
 		role: -1,
 		realname:	"_Admin",
-		age: 0,
-		rcd_date: 	["12/10","13/10","14/10","15/10","16/10","17/10","18/10"],
-		bp_systo: 	[102,104,109,105,106,104,110],
-		bp_diast: 	[65,67,70,69,70,65,70],
-		hr:			[80,74,80,80,82,79,82],
-		walks: 		[10237,18923,4837,8347,12357,12482]
+		age: 0
 	}
 
 ]
@@ -76,11 +56,6 @@ function getInfo() {
 			role 	 = objPeople[i].role;
 			realname = objPeople[i].realname;
 			age 	 = objPeople[i].age;
-			rcd_date = objPeople[i].rcd_date;
-			bp_systo = objPeople[i].bp_systo;
-			bp_diast = objPeople[i].bp_diast;
-			hr 		 = objPeople[i].hr;
-			walks 	 = objPeople[i].walks;
 			// jump to home page
 			window.location.href = "../html/home.html";
 			return

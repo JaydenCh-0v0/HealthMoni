@@ -1,0 +1,190 @@
+/* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+  --black: #1a1a1a;
+  --white: #fff;
+  --gray: #363949;
+  --darkgreen: #2E87A3;
+  --lightbrown: #fff;
+  --darkblack: rgba(0,0,0,0.8);
+  --minRangeValue: 280px;
+  --border-radius-1: 0.4rem;
+}
+
+main .doctors {
+  margin: 0;
+  padding: 0;  
+  outline: none;
+  border: none;
+}
+
+main button {
+  cursor: pointer;
+  background: none;
+}
+
+main img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+main ol,
+ul {
+  list-style: none;
+}
+
+main a {
+  color: inherit;
+}
+
+
+main .gallery {
+  padding: 0 2rem;
+}
+
+main .doc_container {
+  max-width: 1030px;
+  margin: 10px auto;
+}
+
+main .d-none {
+  display: none;
+}
+
+
+/* TOOLBAR
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+main .toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .toolbar .search-wrapper {
+  position: relative;
+}
+
+main .toolbar input[type="search"] {
+  font-size: 1.1rem;
+  border: none;
+  border-bottom: 1px solid;
+  padding-bottom: 3px;
+}
+
+main .toolbar ::placeholder {
+  color: var(--gray);
+}
+
+main .toolbar .counter {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 5px);
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+main .view-options {
+  display: flex;
+  align-items: center;
+}
+
+main .view-options li:not(:last-child) {
+  margin-right: 1.2rem;
+}
+
+main .view-options button {
+  padding: 2px;
+  border: 3px solid transparent;
+}
+
+main .view-options .active button {
+  border-color: var(--darkgreen);
+}
+
+
+/* IMAGE LIST
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+main .image-list {
+  margin: 3rem 0;
+}
+
+main .image-list li {
+  background: var(--lightbrown);
+  color: var(--darkblack);
+  border-radius: var(--border-radius-1);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+main .image-list p:first-child {
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+main .image-list p:last-child {
+  margin-top: 0.5rem;
+}
+
+
+/* GRID VIEW
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+main .grid-view {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(var(--minRangeValue), 1fr));
+}
+
+main .grid-view figcaption {
+  padding: 1rem;
+}
+
+
+/* LIST VIEW
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+main .list-view li + li {
+  margin-top: 1.5rem;
+}
+
+main .list-view figure {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+}
+
+
+/* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+main footer {
+  font-size: 1rem;
+  padding: 0 1.5rem;
+  text-align: right;
+}
+
+main footer span {
+  color: #e31b23;
+}
+
+/* MQ
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 1200px) {
+main .toolbar input[type="range"] {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+main .toolbar {
+  margin-top: 3rem;
+}
+
+main .grid-view li {
+    text-align: center;
+    padding: 0.5rem;
+  }
+  
+main .grid-view figcaption {
+    padding: 0.5rem 0 0;
+  }
+}
