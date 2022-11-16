@@ -166,7 +166,7 @@ if(isset($_SESSION['id'])&& isset($_SESSION['user_name'])){
 <?php
 
 }else{
-    header("Location: http://localhost/HealthMoni/html/index.html");
+    header("Location: ../html/index.html");
     exit();
 }
 ?>

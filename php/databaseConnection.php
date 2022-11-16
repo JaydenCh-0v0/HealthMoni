@@ -14,10 +14,10 @@ include "connect.php";
         $uname = validate($_POST['uname']);
         $pass = validate($_POST['upass']);
         if(empty($uname)){
-            header("Location: http://localhost/HealthMoni/html/index.html");
+            header("Location: ../html/index.html");
             exit();
         }else if(empty($pass)){
-            header("Location: http://localhost/HealthMoni/html/index.html");
+            header("Location: ../html/index.html");
             exit();
         }else{
             
@@ -31,19 +31,19 @@ include "connect.php";
                     $_SESSION['user_name'] = $row['user_id'];
                     $_SESSION['name'] = $row['user_id'];
                     $_SESSION['id'] = $row['user_id'];
-                    header("Location: http://localhost/HealthMoni/html/home.php");
+                    header("Location: ../html/home.php");
                     exit();
                 }else{
-                    header("Location: http://localhost/HealthMoni/html/index.html");
+                    header("Location: ../html/index.html");
                     exit();
                 }
             }else{
-                header("Location: http://localhost/HealthMoni/html/index.html");
+                header("Location: ../html/index.html");
                 exit();
             }
         }
     }else{
-        header("Location: http://localhost/HealthMoni/html/index.html");
+        header("Location: ../html/index.html");
         exit();
     }
 
