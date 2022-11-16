@@ -1,7 +1,8 @@
 var request = new XMLHttpRequest(); 
 var chart = null, title, rcd_title, rcd_color, rcd_data, rcd_date;
 var username;
-var dat_BPS, dat_BPD, dat_HR, dat_Steps, dat_Date;
+var dat_BPS, dat_BPD, dat_HR, dat_Steps, dat_Kcal, dat_Date;
+var weight = 70, height = 183, kcalRatio = 101/3202500;
 
 window.onload = function() {
     // menu listener
@@ -26,14 +27,12 @@ window.onload = function() {
 function setMenuHypertext(){
     const menu_home    = document.getElementById("menu_home");
     const menu_data    = document.getElementById("menu_data");
-    const menu_msg     = document.getElementById("menu_msg");
     const menu_booking = document.getElementById("menu_booking");
     const menu_doctors = document.getElementById("menu_doctors");
     const menu_logout  = document.getElementById("menu_logout");
 
     menu_home.href = "../html/home.html";
     menu_data.href = "../html/dataview.html";
-    menu_msg.href  = "../html/messages.html";
     menu_booking.href = "../html/booking.html";
     menu_doctors.href = "../html/doctors.html";
     menu_logout.href  = "../php/logout.php";
@@ -68,6 +67,8 @@ function getAllRecord() {
             dat_BPD   = data.feeds.map(function(feed){ return feed.field2; });
             dat_HR    = data.feeds.map(function(feed){ return feed.field3; });
             dat_Steps = data.feeds.map(function(feed){ return feed.field4; });
+            var kcalPerStep = weight*height*kcalRatio;
+            dat_Kcal  = dat_Steps.map(function(step){ return step * kcalPerStep; });
             updateCardData();
             updateChart('BP_S');
         } else {
@@ -97,8 +98,10 @@ function updateChart(type) {
     var tit = document.getElementById("dataChartTitle");
     window.scrollTo(0, 0);
     updateChartData(type);
+
     tit.style.color = rcd_color;
     tit.textContent = title;
+
     chart = new Chart(ctx, {
 		type: 'line',
 		data: {
@@ -109,8 +112,16 @@ function updateChart(type) {
 				borderColor: rcd_color,
 				fill: false
 			}]
-		}, options: {title: {display: false}}
+		}, 
+        options: {
+            title: {display: false}
+        }
 	});
+
+    if(type == 'BP_S')  addBoundLine(chart, 140, 90);
+    if(type == 'BP_D')  addBoundLine(chart, 90, 60);
+    if(type == 'HR')    addBoundLine(chart, 100, 60);
+    if(type == 'Steps') addKcalLine(chart, dat_Kcal, "Kcal", "#eeee00");
 }
 
 function updateChartData(type){
@@ -134,7 +145,7 @@ function updateChartData(type){
             rcd_data = dat_HR;
             break;
         case 'Steps':
-            title = "Walks";
+            title = "Steps & Kcal";
             rcd_title = "Steps";
             rcd_color = "#ffbb55";
             rcd_data = dat_Steps;
@@ -142,4 +153,33 @@ function updateChartData(type){
     };
     rcd_date = dat_Date;
     console.log("updateChartData");
+}
+
+function addKcalLine(myChart, dat, lab, color) {
+    myChart.data.datasets.push({ 
+        data: dat,
+        label: lab,
+        borderColor: color,
+        fill: false
+    });
+    myChart.update();
+    console.log("addKcalLine");
+}
+
+function addBoundLine(myChart, upperBound, lowerBound){
+    myChart.data.datasets.push({ 
+        data: Array(7).fill(upperBound),
+        label: "Upper Bound",
+        borderColor: "#ff0000",
+        pointRadius: 0,
+        fill: false
+    });
+    myChart.data.datasets.push({ 
+        data: Array(7).fill(lowerBound),
+        label: "Lower Bound",
+        borderColor: "#0000ff",
+        pointRadius: 0,
+        fill: true,
+    });
+    myChart.update();
 }

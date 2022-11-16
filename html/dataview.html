@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Health Moni</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Moni</title>
 
     <!-- Material Icon -->
-	<link rel="shortcut icon" href="../src/ico/logo.ico">
+    <link rel="shortcut icon" href="../src/ico/logo.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
@@ -15,11 +16,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <!-- Stylesheet -->
-	<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dataview.css">
 
     <!-- Function -->
     <script src="../js/home.js"></script>
 </head>
+
 <body>
     <div class="container">
         <aside id="aside">
@@ -41,11 +44,6 @@
                     <span class="material-icons">query_stats</span>
                     <h3>Dataview</h3>
                 </a>
-                <a id="menu_msg">
-                    <span class="material-icons">forum</span>
-                    <h3>Messages</h3>
-                    <span class="message-count" id="message_count">26</span>
-                </a>
                 <a id="menu_booking">
                     <span class="material-icons">calendar_month</span>
                     <h3>Booking</h3>
@@ -63,26 +61,38 @@
 
         <!-----------Main------------>
         <main>
-            <table class="styled-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Dom</td>
-                        <td>6000</td>
-                    </tr>
-                    <tr class="active-row">
-                        <td>Melissa</td>
-                        <td>5150</td>
-                    </tr>
-                    <!-- and so on... -->
-                </tbody>
-            </table>
+            <h2>Responsive Table</h2>
+            <div class="table-wrapper">
+                <table class="fl-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Datetime</th>
+                            <th>Value</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                        </tr>
+                        <tr>
+                            <td>Content 2</td>
+                            <td>Content 2</td>
+                            <td>Content 2</td>
+                            <td>Content 2</td>
+                            <td>Content 2</td>
+                        </tr>
+                    <tbody>
+                </table>
+            </div>
         </main>
+
         <div class="right">
             <div class="top">
                 <button id="menu-btn">
@@ -95,7 +105,7 @@
                 <div class="profile">
                     <div class="info">
                         <b id="username">-</b>
-                        <small class=""tect-muted>user</small>
+                        <small class="" tect-muted>user</small>
                     </div>
                     <div class="profile-photo">
                         <img src="../src/jpg/null.jpg">
@@ -104,10 +114,12 @@
             </div>
             <!--end of top-->
             <div clsaa="right-btm">
-                
+
 
             </div>
         </div>
     </div>
+    <script src="../js/dataview.js"></script>
 </body>
+
 </html>

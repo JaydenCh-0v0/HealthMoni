@@ -47,11 +47,6 @@ if(isset($_SESSION['id'])&& isset($_SESSION['user_name'])){
                     <span class="material-icons">query_stats</span>
                     <h3>Dataview</h3>
                 </a>
-                <a id="menu_msg">
-                    <span class="material-icons">forum</span>
-                    <h3>Messages</h3>
-                    <span class="message-count" id="message_count">26</span>
-                </a>
                 <a id="menu_booking">
                     <span class="material-icons">calendar_month</span>
                     <h3>Booking</h3>
