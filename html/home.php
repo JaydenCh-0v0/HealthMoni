@@ -101,8 +101,9 @@ if(isset($_SESSION['id'])&& isset($_SESSION['user_name'])){
                     <span class="material-icons">water_drop</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Blood pressure (diastolic)</h3>
-                            <h1 id="card_BPD">70 mmHg</h1>
+                            <h3>Blood Glucose</h3>
+                            <h1 id="card_BPD" hidden="true">11 mmHg</h1>
+                            <h1 id="card_BG">11 mmHg</h1>
                         </div>
                     </div>
                     <small class="text-muted">Last 24 Hours</small>
@@ -166,7 +167,7 @@ if(isset($_SESSION['id'])&& isset($_SESSION['user_name'])){
 <?php
 
 }else{
-    header("Location: http://localhost/HealthMoni/html/index.html");
+    header("Location: ../html/index.html");
     exit();
 }
 ?>

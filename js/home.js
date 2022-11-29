@@ -1,3 +1,4 @@
+var arraySize = 7;
 var request = new XMLHttpRequest(); 
 var chart = null, title, rcd_title, rcd_color, rcd_data, rcd_date;
 var username;
@@ -18,6 +19,8 @@ window.onload = function() {
         sideMenu.style.display = 'none';
     })
 
+    console.log("arrSize: "+arraySize);
+
     setMenuHypertext();
     getUserInfo();
     updateUserInfo();
@@ -31,7 +34,7 @@ function setMenuHypertext(){
     const menu_doctors = document.getElementById("menu_doctors");
     const menu_logout  = document.getElementById("menu_logout");
 
-    menu_home.href = "../html/home.html";
+    menu_home.href = "../html/home.php";
     menu_data.href = "../html/dataview.html";
     menu_booking.href = "../html/booking.html";
     menu_doctors.href = "../html/doctors.html";
@@ -52,7 +55,7 @@ function updateUserInfo() {
 
 function getAllRecord() {
     var urlHere = "https://api.thingspeak.com/channels/1875551/feed.json?";
-    urlHere = urlHere + "pi_key=NEI1NVRI0SIQ2RV6&results=7";
+    urlHere = urlHere + "pi_key=NEI1NVRI0SIQ2RV6&results=" + arraySize;
     console.log("Accessing " + urlHere);
     request.open('GET', urlHere, true);
     request.onload = function() {
@@ -86,10 +89,10 @@ function updateCardData() {
     var card_HR     = document.getElementById("card_HR" );
     var card_Steps  = document.getElementById("card_Steps");
 
-    card_BPS.textContent    = dat_BPS[6]   + " mmHg" ;
-    card_BPD.textContent    = dat_BPD[6]   + " mmHg" ;
-    card_HR.textContent     = dat_HR[6]    + " bpm"  ;
-    card_Steps.textContent  = dat_Steps[6] + " steps";
+    card_BPS.textContent    = (dat_BPS[arraySize-1]!=null?dat_BPS[arraySize-1]:0)   + " mmHg" ;
+    card_BPD.textContent    = (dat_BPD[arraySize-1]!=null?dat_BPD[arraySize-1]:0)   + " mmHg" ;
+    card_HR.textContent     = (dat_HR[arraySize-1]!=null ?dat_HR[arraySize-1]:0)     + " bpm"  ;
+    card_Steps.textContent  = (dat_Steps[arraySize-1]!=null?dat_Steps[arraySize-1]:0) + " steps";
 }
 
 function updateChart(type) {
@@ -168,14 +171,14 @@ function addKcalLine(myChart, dat, lab, color) {
 
 function addBoundLine(myChart, upperBound, lowerBound){
     myChart.data.datasets.push({ 
-        data: Array(7).fill(upperBound),
+        data: Array(arraySize).fill(upperBound),
         label: "Upper Bound",
         borderColor: "#ff0000",
         pointRadius: 0,
         fill: false
     });
     myChart.data.datasets.push({ 
-        data: Array(7).fill(lowerBound),
+        data: Array(arraySize).fill(lowerBound),
         label: "Lower Bound",
         borderColor: "#0000ff",
         pointRadius: 0,
