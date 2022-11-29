@@ -1,4 +1,6 @@
+
 var arraySize = 7;
+
 var request = new XMLHttpRequest(); 
 var chart = null, title, rcd_title, rcd_color, rcd_data, rcd_date;
 var username;
